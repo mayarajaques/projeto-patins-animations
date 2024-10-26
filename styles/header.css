@@ -3,6 +3,7 @@ header {
   /*tamanho maximo do header*/
   width: 100%;
   padding: 1.25rem 2rem;
+  margin-inline: auto; /*quando der zoom ou diminuir fica tudo alinhado*/
 
   display: flex;
   align-items: center;

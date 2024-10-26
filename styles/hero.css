@@ -1,0 +1,153 @@
+section.hero {
+  max-width: 80rem;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  margin-inline: auto;
+  /*quando der zoom ou diminuir fica tudo alinhado*/
+
+  & h1{
+    max-width: 40rem;
+  }
+
+
+  & h1 div {
+    display: inline-block;
+    /*em alguns momentos eu quero que ela fique em linha e nao quebre*/
+
+    /** limites de tamanho*/
+    overflow: hidden;
+
+    height: 5rem;
+    /*altura de uma letra*/
+
+    width: min-content;
+    /*ele vai ver a palavra maior e vai encaixr nessa palavra maior. Qual o minimo que posso ter dessa caixa que nao vai quebrar as letras, mas pode quebrar palavras*/
+    vertical-align: bottom;
+    /*alinhar todas as palavras*/
+
+
+
+  }
+
+  & h1 span:nth-child(1),
+  & h1 span:nth-child(4) {
+    color: var(--snitap-sky-mid);
+    /*radical*/
+  }
+
+  & h1 span:nth-child(2) {
+    color: var(--snitap-joy-mid);
+    /*divertida*/
+  }
+
+  & h1 span:nth-child(3) {
+    color: var(--snitap-leaf-mid);
+    /*saudavel*/
+  }
+
+
+
+  /*aplicando a animação*/
+  & h1 span {
+    display: block;
+    /*garantir que ele fica o quadrado certinho*/
+
+    animation: slideUp 6s infinite ease;
+    /*nome de animação e o tempo*/
+  }
+}
+
+/*timeline do radical, divertida e saudavel*/
+
+@keyframes slideUp {
+
+  /*------- radical static------*/
+
+
+  /*do 0% até 22% vai ter um ponto*/
+  0%,
+  22% {
+    transform: translateY(0);
+    /*vai fazer a palavra ir pra cima e pra baixo*/
+  }
+
+  /* --------divertida in-------*/
+  23% {
+    transform: translateY(calc(-5rem - 15px));
+    /*tira 15px do 5rem, indo 15px acima, dando o pulo*/
+  }
+
+  25% {
+    transform: translateY(-5rem + 10px);
+    /*posição dela de 5remn + 10px do 5rem,dando pulo a mais*/
+  }
+
+  27% {
+    transform: translateY(-5rem - 5px);
+    /*posição dela de 5rem - 5px do 5rem, dando outro pulo diferente*/
+  }
+
+  29% {
+    transform: translateY(-5rem + 5px);
+    /*posição dela de 5rem + 5px do 5rem, dando outro pulo diferente*/
+  }
+
+
+
+  /* -------divertida static-------*/
+  /*do 33% até 55% vai ter outro ponto*/
+  33%,
+  55% {
+    transform: translateY(-5rem);
+    /*altura da caixa*/
+  }
+
+  /*------- saudavel in------*/
+  56% {
+    transform: translateY(calc(-10rem - 15px));
+    /*posição do radical -15px para subir*/
+  }
+
+  58% {
+    transform: translateY(calc(-10rem + 10px));
+  }
+
+  60% {
+    transform: translateY(calc(-10rem - 5px));
+  }
+
+  62% {
+    transform: translateY(calc(-10rem + 5px));
+  }
+
+
+  /*------- saudavel static------*/
+  /*do 66% até 88% vai ter outro ponto*/
+  66%,
+  88% {
+    transform: translateY(-10rem);
+  }
+
+  /*------- radical in------*/
+  89% {
+    transform: translateY(calc(-15rem - 15px));
+    /*posição do radical -15px para subir*/
+  }
+
+  91% {
+    transform: translateY(calc(-15rem + 10px));
+  }
+
+  93% {
+    transform: translateY(calc(-15rem - 5px));
+  }
+
+  95% {
+    transform: translateY(calc(-15rem + 5px));
+  }
+
+  100% {
+    transform: translateY(-15rem);
+    /*finaliza na ultima palavra radical, parecendo que está infinito*/
+  }
+}
