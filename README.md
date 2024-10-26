@@ -1,4 +1,4 @@
-<h1 align="center"> Landing Page Snitap </h1>
+<h1 align="center"> Landing Page animada da Snitap </h1>
 
 <p align="center">
   Projeto desenvolvido com o curso Fullstack da Rocketseat. <br>
