@@ -1,0 +1,60 @@
+.banner {
+  width: 100%;
+  /*pega tudo*/
+  padding-block: 2.5rem;
+  /*limites do banner*/
+  overflow: hidden;
+  /*nada de transbordamento*/
+
+
+
+  .scroller {
+    width: 100%;
+    overflow: hidden;
+    /*garantindo que nada vai transbordar*/
+
+    padding-block: 1rem;
+
+  }
+
+  .rolling {
+    display: flex;
+    gap: 1.5rem;
+
+    animation: rolling 2s linear infinite;
+  }
+
+  /*colocando gradiente no banner*/
+  .bg-gradient-animate {
+    background: linear-gradient(45deg,
+        var(--snitap-sky-light),
+        var(--snitap-joy-light));
+
+
+    background-size: 400%; /* deixando amior eu tenho como movimentar ele vendo ele trocar de cor*/
+    position: 0 50%;
+
+    animation: bg-gradient 20s ease infinite;
+  }
+
+}
+
+@keyframes bg-gradient {
+  50%{
+    background-position: 100% 50%; /*movimentando a 100% quando ta 0 e 50% aonde estava*/
+  }
+  
+}
+
+
+/*animação do banner*/
+
+@keyframes rolling {
+  to {
+    transform: translateX(-132px);
+    /*calculo tamanho do svg 109 + gap(24px) = 133*/
+  }
+
+
+
+}
