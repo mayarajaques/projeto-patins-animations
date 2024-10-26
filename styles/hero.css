@@ -316,3 +316,47 @@ section.hero {
     /*finaliza na ultima palavra radical, parecendo que está infinito*/
   }
 }
+
+@media only screen and (max-width: 768px) {
+
+  section.hero {
+    max-width: 48rem;
+    padding: 1rem 2rem;
+
+    display: flex;
+    /*colocando tudo do lado do outro*/
+    flex-direction: column-reverse;
+    align-items: center;
+
+
+    & h1 {
+      max-width: 36rem;
+      font-size: 32px;
+    
+    }
+
+
+    & h1 div {
+
+      height: 2.3rem;
+      font-size: 32px;
+      /*altura de uma letra*/
+
+    }
+
+
+    & .buttons {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 1.5rem;
+
+    }
+
+    &>div:nth-child(2) {
+      max-width: 18.46rem;
+      height: 18.46rem;
+      margin-bottom: 40px;
+    }
+  }
+
+}

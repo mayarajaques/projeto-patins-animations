@@ -151,3 +151,37 @@ section.gallery {
   }
 
 }
+
+@media only screen and (max-width: 768px) {
+
+
+  section.gallery {
+    max-width: 48rem;
+    /*largura maxima*/
+    padding: 1.5rem;
+    margin-block: auto;
+    /* alinhado ao meio se ficar pequeno*/
+  
+  
+    & header span {
+      font-size: 0.75rem ;
+    }
+  
+    & .content {
+      margin-top: 1.5rem;
+      display: flex;
+     flex-direction: column;
+      gap: 1.5rem;
+  
+    }
+
+    & figure {
+
+      &>img {
+        height: 16rem;
+      
+      }
+    }
+  }
+  
+}

@@ -27,7 +27,7 @@
   --text-lg: 2.5rem;
   --text-xl: 4rem;
 
-  
+
 
 }
 
@@ -52,7 +52,15 @@ h2 {
   line-height: 1.2;
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  h2 {
+    font-size: 1.5rem;
+
+
+  }
 }
