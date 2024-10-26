@@ -1,0 +1,153 @@
+section.gallery {
+  width: 100%;
+  /*largura maxima*/
+  max-width: 80rem;
+  /*largura maxima*/
+  padding: 2.5rem 2rem;
+  margin-inline: auto;
+  /* alinhado ao meio se ficar pequeno*/
+
+
+  & header {
+    text-align: center;
+  }
+
+  & header span {
+    font: 500 var(--text-sm)/1.5 var(--ff-base);
+  }
+
+  & img {
+    width: 100%;
+    height: auto;
+    /*respeitando a caixa que ele estiver inserido*/
+  }
+
+  & .content {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-areas:
+      "A B B"
+      "C C D";
+
+    gap: 2.5rem;
+
+  }
+
+  /*organizando as areas do grid acima*/
+  & figure {
+    position: relative;
+    border-radius: 2.5rem;
+    overflow: hidden;
+    line-height: 0;
+    /*se imagem passar fica escondido*/
+
+
+    animation: image-appear linear backwards;
+    /*backwards traz animação de antes*/
+    animation-timeline: view();
+    /*vai animar quando a imagem aparecer na view*/
+    animation-range: 100px 300px;
+    /* começa 100px do fundo e termina 300px do fundo*/
+
+
+    /*colocando delay em cada imagem*/
+    &[data-delay] {
+      /*atributo*/
+      animation-range: 150px 350px; /*quando terminar o de cima começa este*/
+    }
+
+    &>img {
+      /*primeiro nivel de imagens*/
+      height: 25rem;
+      object-fit: cover;
+      transition: scale 500ms;
+      /*efeito de chegada e saida  do mouse na imagem. se colocar diretamente no hover nao tem o efeito de saida*/
+
+    }
+
+    &:hover {
+
+      /*quando passar o mouse em cima do figure na iamgem do primeiro nivel*/
+      &>img {
+        scale: 1.1;
+      }
+
+      figcaption {
+        transform: translateY(0);
+        /*sair o nome e a foto de baixo da imagem*/
+      }
+    }
+
+    &:nth-child(1) {
+      grid-area: A;
+
+    }
+
+    &:nth-child(2) {
+      grid-area: B;
+
+    }
+
+    &:nth-child(3) {
+      grid-area: C;
+    }
+
+    &:nth-child(4) {
+      grid-area: D;
+
+    }
+
+  }
+
+  & figcaption {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /*joga para o canto direito*/
+    gap: .5rem;
+
+    font: 500 var(--text-sm)/1.5 var(--ff-base);
+    color: white;
+
+    position: absolute;
+    /*absoluto ao figure*/
+    bottom: 0;
+    /*em baixo da foto*/
+    width: 100%;
+
+    padding: 1.5rem 2rem;
+
+    transform: translateY(100%);
+    /*sai da tela a imagem do instagram*/
+    transition: transform 500ms;
+    /*aparecendo a imagem*/
+
+
+    /*sombra no nome e na foto do insta*/
+    background: linear-gradient(to top,
+        rgb(0 0 0 /0.64),
+        rgb(0 0 0 /0));
+
+
+    &>img {
+      width: 2rem;
+      aspect-ratio: 1/1;
+      /*imagem do insta vai sempre manter um quadrado perfeito*/
+      object-fit: cover;
+      border: 50%;
+    }
+
+  }
+
+
+}
+
+/*animação das imagens aparecendo*/
+@keyframes image-appear {
+  from {
+    opacity: 0;
+    /*iniciando com imagem transparente e jogando elemento para baixo*/
+    transform: translateY(100%);
+  }
+
+}
