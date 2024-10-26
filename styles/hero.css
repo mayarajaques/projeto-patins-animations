@@ -5,6 +5,12 @@ section.hero {
   margin-inline: auto;
   /*quando der zoom ou diminuir fica tudo alinhado*/
 
+  display: flex;
+  /*colocando tudo do lado do outro*/
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+
   & h1 {
     max-width: 40rem;
   }
@@ -52,11 +58,12 @@ section.hero {
     display: block;
     /*garantir que ele fica o quadrado certinho*/
 
-    animation: slideUp 6s infinite ease;
+    animation: slideUp 5s 2s infinite ease;
     /*nome de animação e o tempo*/
   }
 
-  /*buttons*/
+
+  /*--------------buttons---------------*/
 
   & .buttons {
     display: flex;
@@ -89,7 +96,7 @@ section.hero {
       }
 
       /*animação quando passar mouse em cima */
-      &:hover{
+      &:hover {
         scale: 1.1;
         /* transform: scale(1.1); --- também funciona,  multiplos browsers */
       }
@@ -101,26 +108,127 @@ section.hero {
       /*multiplas sombras*/
       /*deslocamento eixo x e deslocamento eixo e y 5px de blur e cor*/
       box-shadow:
-      0 2px 5px rgb(0 0 0 / .1),
-      0 9px 9px rgb(0 0 0 / .09),
-      0 20px 12px rgb(0 0 0 / .05),
-      0 36px 15px rgb(0 0 0 / .01)
-      ; 
+        0 2px 5px rgb(0 0 0 / .1),
+        0 9px 9px rgb(0 0 0 / .09),
+        0 20px 12px rgb(0 0 0 / .05),
+        0 36px 15px rgb(0 0 0 / .01);
     }
 
-   
+
   }
 
+  /*--------------patins---------------*/
+
+  &>div:nth-child(2) {
+    /*primeiro nivel de div do hero pega a div numero 2 */
+    display: block;
+    /* deixar tudo como bloco*/
+    width: 100%;
+    /*largura de 100% do que tiver de espaço*/
+    max-width: 30.5rem;
+    height: 30.5rem;
+
+
+    /*caixa das imagens do patins*/
+    /*proteger que minha animação fique dentro desta caixa*/
+    & .content {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    & img {
+      position: absolute;
+      /*colocando todas as imagens dentro dessa caixa*/
+      width: 100%;
+      /*todas as imagens com lagura 100%*/
+    }
+
+    & img[src*="ellipse"] {
+      /*pegar a imagem da bolinha azul*/
+      width: 94%;
+      top: 3%;
+      /*afasta do topo e esquerda */
+      left: 3%;
+
+      transform: translateX(200%);
+      /*200% tirando a bolinha para o lado direito*/
+      animation: slideIn 3s 200ms ease forwards;
+      /*chegando a bolinha, ease =tranquila, e quando acabar eu quero que ela continue na posição de termino 100% (fowards ou both)  e não volte
+      atraso de 200ms */
+    }
+
+    & img[src*="patins"] {
+      z-index: 1;
+      /*coloca a imagem do patins por cima de todas as imagens*/
+
+      transform: translateX(200%);
+      /*afasta o patins */
+      animation: slideIn 3s ease forwards;
+      /*chegada*/
+    }
+
+    & img[src*="stars-1"] {
+      max-width: 5.5rem;
+      top: 30%;
+      /*deslocamento do topo*/
+      z-index: 0;
+      /*estrela em cima da bolinha azul*/
+
+      opacity: 0;
+      /*some da tela*/
+      transform: translateX(400%);
+      animation: slideIn 2s 800ms ease both, appear 100ms 800ms both;
+      /*800ms para iniciar*/
+    }
+
+
+    /*posicionamento final da imagem da bola com patins*/
+    & img[src*="stars-2"] {
+      max-width: 2.5rem;
+      right: 0;
+      /*jogar no canto direito*/
+      bottom: 35%;
+      /*afasta 30% da parte de baixo*/
+
+      transform: translateX(400%);
+      /*tira da tela*/
+      animation: slideIn 2.2s 800ms ease both;
+    }
+
+
+  }
+}
+
+/**/
+
+/*animação da bola com patins*/
+@keyframes slideIn {
+
+  /*no 50% ele passa um pouquinho*/
+  50% {
+    transform: translateX(-20px);
+  }
+
+  100% {
+    transform: translateX(0);
+    /*posição de chegada*/
+  }
 
 }
 
-/*timeline do radical, divertida e saudavel*/
+/*animação de aparecer*/
+@keyframes appear {
+  to {
+    opacity: 1;
+  }
+}
 
+
+/*timeline do radical, divertida e saudavel*/
 @keyframes slideUp {
 
   /*------- radical static------*/
-
-
   /*do 0% até 22% vai ter um ponto*/
   0%,
   22% {
