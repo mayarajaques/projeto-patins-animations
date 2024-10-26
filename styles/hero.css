@@ -328,6 +328,10 @@ section.hero {
     flex-direction: column-reverse;
     align-items: center;
 
+   & .button{
+      width: 284px;
+    }
+
 
     & h1 {
       max-width: 36rem;
@@ -347,6 +351,7 @@ section.hero {
 
     & .buttons {
       display: flex;
+      width: 284px;
       flex-direction: column-reverse;
       gap: 1.5rem;
 
