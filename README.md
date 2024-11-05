@@ -2,7 +2,7 @@
 
 <p align="center">
   Projeto desenvolvido com o curso Fullstack da Rocketseat. <br>
-  <strong>Neste projeto o objetivo principal e trabalhar os conceitos de Transitions e Animations no CSS.</strong>
+  <strong>Neste projeto o objetivo principal é trabalhar os conceitos de Transitions e Animations no CSS.</strong>
 </p>
 
 <p align="center">
